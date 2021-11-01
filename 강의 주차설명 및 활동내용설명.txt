@@ -1,4 +1,5 @@
 1강 - 설치 : 4주차 1차시, 2차시 일부
+
 2강 - 기본사용법, 사용자 관리와 권한부여 4주차 2차시 나머지
 (테이블리스트보기, 테이블 구조보기,  데이터베이스 생성 및 삭제, 사용자 계정만들고 삭제하기, 계정에 비밀번호입력)
 localhost 'thkim', 'kth'의 패스워드는 '1234'이다
@@ -8,3 +9,11 @@ localhost 'thkim', 'kth'의 패스워드는 '1234'이다
 교안 명령어 : update user set authentication_string=password('1234') where user='thkim'; 라고 나와있지만 실행 안됨.
 
 구글링하여 찾은 명령어 : alter user 'thkim'@'localhost' identified with mysql_native_password by '1234'; 로 입력하여 비밀번호 변경 완료.
+
+3강 -  데이터베이스 일괄실행, 백업 및 복원
+
+백업 명령어 mysqldump -u thkim -p itbank > itbank_backup.sql 명령어 실행시
+mysqldump: Error: 'Access denied; you need (at least one of) the PROCESS privilege(s) for this operation' when trying to dump tablespaces << 해당 에러 발생
+
+어제 사용자계정 만들고 삭제한 후 다시 생성('thkim')작업 실시함.
+2강 정리본 찾아본 후 'thkim'계정 create 후 권한 부여 안한 것 확인. 권한 부여 후 정상작동 확인.
